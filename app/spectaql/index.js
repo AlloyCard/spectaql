@@ -106,6 +106,11 @@ module.exports = function(opts) {
   }
 
   const jsonSchema = jsonSchemaFromIntrospectionResponse(introspectionResponse)
+  
+  introspectionResponse.__schema.queryType.name = "Query"
+  introspectionResponse.__schema.mutationType.name = "Mutation"
+
+
   const graphQLSchema = graphQLSchemaFromIntrospectionResponse(introspectionResponse)
 
   augmentData({
